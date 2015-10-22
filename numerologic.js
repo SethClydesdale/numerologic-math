@@ -56,7 +56,7 @@
     summation : function(n) {
       if (typeof n === 'number') {
         while (n > 9) {
-          for (var val = n.toString(), i = 0, j = val.length, n = 0; i < j; i++) {
+          for (var val = Math.floor(n).toString(), i = 0, j = val.length, n = 0; i < j; i++) {
             n += +val.charAt(i);
           }
         }

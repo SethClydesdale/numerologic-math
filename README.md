@@ -22,6 +22,6 @@ Only basic latin characters are calculated. ( A-Z )
 ``summation()`` takes a whole number and returns a single digit.
 
 Example :
-```
+```javascript
 numerologic.summation(2015); // 8
 ```

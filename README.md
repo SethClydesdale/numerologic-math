@@ -29,7 +29,7 @@ Note : Only basic latin characters are calculated by this method. ( A-Z )
 numerologic.summation(2015); // 8
 ```
 
-Each number is added together until only a single digit remains. This is what's going on : 2 + 0 + 1 + 5 = 8
+Each number is added together until only a single digit remains. For example : 2 + 0 + 1 + 5 = 8
 
 ### numerologic.gender(n)
 

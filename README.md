@@ -1,2 +1,27 @@
-# numerologic-math
-Numerological methods for single-digit summation and calculation of a string's value
+# Numerologic Math
+
+This is an object for numerological calculations.
+
+## Methods
+
+Currently there are two methods available.
+
+#### numerologic.value(str)
+
+``value()`` takes a string and returns a single digit. 
+
+Example :
+```javascript
+numerologic.value('Seth'); // 7
+```
+
+Only basic latin characters are calculated. ( A-Z )
+
+#### numerologic.summation(n)
+
+``summation()`` takes a whole number and returns a single digit.
+
+Example :
+```
+numerologic.summation(2015); // 8
+```

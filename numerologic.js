@@ -63,6 +63,16 @@
       }
       
       return n;
+    },
+    
+    // find the gender of a number
+    // odd numbers are masculine and even numbers are feminine
+    gender : function(n) {
+      if (typeof n === 'number') {
+        return n % 2 == 0 ? 'feminine' : 'masculine';
+      } else {
+        return false;
+      }
     }
 
   }

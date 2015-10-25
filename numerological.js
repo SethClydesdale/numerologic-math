@@ -65,7 +65,7 @@
         }
       }
       
-      return map ? s || '' : n;
+      return map ? (s || '').replace(/ --> $/, '') : n;
     },
     
     // find the gender of a number

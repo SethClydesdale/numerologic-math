@@ -1,5 +1,5 @@
 (function() {
-  var numerologic = {
+  var numerological = {
     
     // a is 1, b is 2, and so on..
     // If a number is two or more digits add them together
@@ -33,19 +33,19 @@
     },
 
     // return the numerological value of a string
-    value : function(str) {
+    value : function(str, map) {
       if (typeof str === 'string') {
-        var i = 0,
-            j = str.length,
-            val = 0;
-
-        for (str = str.toLowerCase(); i < j; i++) {
-          if (numerologic.alphabet[str.charAt(i)]) {
-            val += numerologic.alphabet[str.charAt(i)];
+        str = str.toLowerCase();
+        for (var i = 1, j = str.length, val = numerological.alphabet[str.charAt(0)], s = str.charAt(0) + ' = ' + val + ' --> '; i < j; i++) {
+          if (numerological.alphabet[str.charAt(i)]) {
+            val += numerological.alphabet[str.charAt(i)];
+            if (map) {
+              s += (val - numerological.alphabet[str.charAt(i)]) + ' + (' + str.charAt(i) + ' = ' + numerological.alphabet[str.charAt(i)] + ') = ' + val + ' --> ';
+            }
           }
         }
         
-        return numerologic.summation(val);
+        return map ? s += numerological.summation(val, true) : numerological.summation(val);
         
       } else {
         return null;
@@ -53,16 +53,19 @@
     },
       
     // take a whole number and sum it up into a single digit
-    summation : function(n) {
+    summation : function(n, map) {
       if (typeof n === 'number') {
         while (n > 9) {
-          for (var val = Math.floor(n).toString(), i = 0, j = val.length, n = 0; i < j; i++) {
+          for (var val = Math.floor(n).toString(), i = 1, j = val.length, n = +val.charAt(0), s = s || '', o; i < j; i++) {
             n += +val.charAt(i);
+            if (map) {
+              s += (n - +val.charAt(i)) + ' + ' + +val.charAt(i) + ' = ' + n + ' --> ';
+            }
           }
         }
       }
       
-      return n;
+      return map ? s.replace(/ --> $/, '') : n;
     },
     
     // find the gender of a number
@@ -77,7 +80,7 @@
 
   }
   
-  if (!window.numerologic) {
-    window.numerologic = numerologic;
+  if (!window.numerological) {
+    window.numerological = numerological;
   }
 }());

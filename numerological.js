@@ -45,7 +45,7 @@
           }
         }
         
-        return map ? s += numerological.summation(val, true) : numerological.summation(val);
+        return map ? (s += numerological.summation(val, true)).replace(/ --> $/, '') : numerological.summation(val);
         
       } else {
         return null;
@@ -65,7 +65,7 @@
         }
       }
       
-      return map ? s.replace(/ --> $/, '') : n;
+      return map ? s || '' : n;
     },
     
     // find the gender of a number
